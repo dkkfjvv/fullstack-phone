@@ -5,14 +5,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build:io": "rm -rf dist && cd ../frontend && pnpm run build && cp -r dist ../backend",
+    "deploy:full": "npm run build:io && git add . && git commit -m build && git push"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "mongoose": "^8.19.2",
     "morgan": "^1.10.1"
   }
 }
